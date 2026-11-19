@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Ministério Razão de Viver — App Oficial</title>
+  <meta name="description" content="App oficial do Ministério de Música Católico Razão de Viver — Paróquia Nossa Senhora de Guadalupe, Complexo do Alemão (RJ). Ouça os CDs Eu Não Morri em Vão e Minha Obra, acompanhe a agenda, letras, cifras e pedidos de oração." />
+  <meta name="theme-color" content="#0B0A09" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Razão de Viver" />
+
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" type="image/png" href="./assets/img/icon-192.png" />
+  <link rel="apple-touch-icon" href="./assets/img/icon-512.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles/app.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar Desktop -->
+    <aside class="desktop-sidebar" aria-label="Menu principal">
+      <div class="sidebar-brand">
+        <img src="./assets/img/icon-192.png" alt="Logo Ministério Razão de Viver" class="brand-logo" />
+        <div>
+          <div class="brand-title">Razão de Viver</div>
+          <div class="brand-sub">Ministério de Música</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="desktop-nav">
+        <button class="nav-link active" data-route="home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5.5v-6.5h-5V21H4a1 1 0 0 1-1-1v-9.5z"/></svg>
+          <span>Início</span>
+        </button>
+        <button class="nav-link" data-route="music">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3v3"/></svg>
+          <span>Músicas & Cifras</span>
+        </button>
+        <button class="nav-link" data-route="agenda">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg>
+          <span>Agenda</span>
+        </button>
+        <button class="nav-link" data-route="interact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.5-9-9.5C1.5 7.8 4 4.5 7.5 4.5c2 0 3.5 1.1 4.5 2.5 1-1.4 2.5-2.5 4.5-2.5 3.5 0 6 3.3 4.5 7-2 5-9 9.5-9 9.5z"/></svg>
+          <span>Interagir</span>
+        </button>
+        <button class="nav-link" data-route="about">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+          <span>Sobre o Ministério</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-install-sidebar hidden" id="btn-install-desktop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          <span>Instalar App</span>
+        </button>
+        <button class="nav-link nav-admin-link" data-route="admin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          <span>Área da Banda</span>
+        </button>
+        <p class="sidebar-parish">Paróquia N. Sra. de Guadalupe<br/>Complexo do Alemão • RJ</p>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <div class="main-column">
+      <!-- Top Bar Mobile -->
+      <header class="mobile-topbar">
+        <div class="topbar-brand" data-route="home">
+          <img src="./assets/img/icon-192.png" alt="Logo" class="brand-logo-sm" />
+          <div>
+            <span class="topbar-title">Razão de Viver</span>
+            <span class="topbar-sub">Ministério Católico</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-pill hidden" id="btn-install-mobile" title="Instalar no celular">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            <span>Instalar</span>
+          </button>
+          <button class="icon-btn" id="btn-share-app" title="Compartilhar aplicativo" aria-label="Compartilhar aplicativo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+          </button>
+          <button class="icon-btn" data-route="admin" title="Área da Banda (Admin)" aria-label="Área da Banda">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Banner de Instalação iOS/Android -->
+      <div class="install-banner hidden" id="install-banner">
+        <div class="install-banner-text">
+          <strong>Leve o Razão de Viver no celular!</strong>
+          <span>Instale como aplicativo na tela inicial — rápido e gratuito.</span>
+        </div>
+        <div class="install-banner-actions">
+          <button class="btn btn-gold btn-sm" id="btn-install-banner-go">Instalar</button>
+          <button class="btn-ghost-close" id="btn-install-banner-close" aria-label="Fechar">✕</button>
+        </div>
+      </div>
+
+      <!-- Área Dinâmica das Telas -->
+      <main id="app-view" class="app-view" tabindex="-1"></main>
+    </div>
+
+    <!-- Bottom Navigation Mobile -->
+    <nav class="mobile-bottom-nav" id="mobile-nav" aria-label="Navegação inferior">
+      <button class="bottom-tab active" data-route="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5.5v-6.5h-5V21H4a1 1 0 0 1-1-1v-9.5z"/></svg>
+        <span>Início</span>
+      </button>
+      <button class="bottom-tab" data-route="music">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3v3"/></svg>
+        <span>Músicas</span>
+      </button>
+      <button class="bottom-tab" data-route="agenda">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg>
+        <span>Agenda</span>
+      </button>
+      <button class="bottom-tab" data-route="interact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.5-9-9.5C1.5 7.8 4 4.5 7.5 4.5c2 0 3.5 1.1 4.5 2.5 1-1.4 2.5-2.5 4.5-2.5 3.5 0 6 3.3 4.5 7-2 5-9 9.5-9 9.5z"/></svg>
+        <span>Interagir</span>
+      </button>
+      <button class="bottom-tab" data-route="about">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+        <span>Sobre</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Modal Global (Letras & Cifras, QR Code, Ajuda iOS, etc.) -->
+  <div class="modal-backdrop hidden" id="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-sheet" id="modal-sheet">
+      <div class="modal-header">
+        <div id="modal-title-wrap">
+          <h2 id="modal-title">Título</h2>
+          <p id="modal-subtitle" class="modal-subtitle"></p>
+        </div>
+        <button class="icon-btn" id="modal-close" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast de Feedback -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
