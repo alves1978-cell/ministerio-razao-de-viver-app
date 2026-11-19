@@ -852,7 +852,7 @@ export function renderAbout(container, ctx) {
 
     <div class="card">
       <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:14px;">
-        <img src="./assets/img/icon-192.png" alt="Logo" style="width:68px;height:68px;border-radius:16px;border:1px solid var(--border-strong);" />
+        <img src="./assets/img/icon-192.png?v=6" alt="Logo" style="width:68px;height:68px;border-radius:16px;border:1px solid var(--border-strong);" />
         <div>
           <span class="badge">Ministério de Música Católico</span>
           <h2 style="margin:6px 0 2px;font-size:1.2rem;">Evangelizando através da música</h2>
