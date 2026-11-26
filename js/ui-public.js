@@ -126,12 +126,9 @@ export function renderHome(container, ctx) {
     <div class="section-header">
       <div>
         <span class="section-kicker">Discografia Oficial</span>
-        <h2 class="section-title">Nossos 2 CDs Gravados</h2>
+        <h2 class="section-title">Nossos Álbuns</h2>
       </div>
-      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
-        <a class="btn-link" href="./assets/docs/cancioneiro-ministerio-razao-de-viver.pdf?v=2" target="_blank" rel="noopener">📖 Cancioneiro PDF</a>
-        <button class="btn-link" data-nav="music">Ver faixas e cifras →</button>
-      </div>
+      <button class="btn-link" data-nav="music">Ver faixas e cifras →</button>
     </div>
     <div class="albums-grid">
       ${albums.map((alb) => {
@@ -139,9 +136,9 @@ export function renderHome(container, ctx) {
         return `
           <article class="album-card">
             <div class="album-top">
-              <img src="${esc(alb.cover)}" alt="Capa do CD ${esc(alb.title)}" class="album-cover" />
+              <img src="${esc(alb.cover)}" alt="Capa do álbum ${esc(alb.title)}" class="album-cover" />
               <div class="album-info">
-                <span class="badge">CD • ${esc(alb.year)} • ${count} faixas</span>
+                <span class="badge">${esc(alb.year)} • ${count} Faixas</span>
                 <h3>${esc(alb.title)}</h3>
                 <p>${esc(alb.description)}</p>
               </div>
@@ -159,6 +156,20 @@ export function renderHome(container, ctx) {
           </article>
         `;
       }).join('')}
+    </div>
+
+    <div class="cancioneiro-strip">
+      <div class="cancioneiro-strip-text">
+        <span class="cancioneiro-strip-icon" aria-hidden="true">📖</span>
+        <div>
+          <strong>Cancioneiro Oficial em PDF</strong>
+          <span>44 páginas • Todas as 20 letras e cifras</span>
+        </div>
+      </div>
+      <div class="cancioneiro-strip-actions">
+        <a class="btn btn-gold btn-sm" href="./assets/docs/cancioneiro-ministerio-razao-de-viver.pdf?v=2" download="Cancioneiro-Ministerio-Razao-de-Viver.pdf">⬇ Baixar</a>
+        <a class="btn btn-outline btn-sm" href="./assets/docs/cancioneiro-ministerio-razao-de-viver.pdf?v=2" target="_blank" rel="noopener">Abrir</a>
+      </div>
     </div>
 
     <div class="section-header">
@@ -264,7 +275,7 @@ export function renderMusic(container, ctx) {
             <div class="album-top">
               <img src="${esc(alb.cover)}" alt="Capa ${esc(alb.title)}" class="album-cover" />
               <div class="album-info">
-                <span class="badge">${esc(alb.year)} • ${count} faixas</span>
+                <span class="badge">${esc(alb.year)} • ${count} Faixas</span>
                 <h3>${esc(alb.title)}</h3>
                 <p>${esc(alb.description)}</p>
               </div>

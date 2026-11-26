@@ -459,6 +459,11 @@ img {
   margin: 28px 0 14px;
 }
 
+.section-header .btn-link {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .section-header:first-child {
   margin-top: 0;
 }
@@ -844,6 +849,60 @@ img {
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
+}
+
+.cancioneiro-strip {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(230, 169, 59, 0.12), rgba(26, 23, 20, 0.94));
+  border: 1px solid var(--border-strong);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cancioneiro-strip-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.cancioneiro-strip-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: rgba(230, 169, 59, 0.16);
+  border: 1px solid rgba(230, 169, 59, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.cancioneiro-strip-text strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.cancioneiro-strip-text span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.cancioneiro-strip-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .album-top {

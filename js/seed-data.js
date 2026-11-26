@@ -35,8 +35,8 @@ export const SEED_DATA = {
     {
       id: 'alb-eu-nao-morri',
       title: 'Eu Não Morri em Vão',
-      year: '2023',
-      releaseDate: '04/11/2023 • Tratore',
+      year: '2003',
+      releaseDate: '2003',
       cover: './assets/img/capa-eu-nao-morri-em-vao.jpg?v=4',
       description:
         'Um convite profundo à fé, ao perdão e à esperança no amor redentor de Cristo. Reúne 10 canções de adoração, entrega e devoção mariana.',
@@ -51,8 +51,8 @@ export const SEED_DATA = {
     {
       id: 'alb-minha-obra',
       title: 'Minha Obra',
-      year: '2023',
-      releaseDate: '04/11/2023 • Tratore',
+      year: '2013',
+      releaseDate: '2013',
       cover: './assets/img/capa-minha-obra.jpg?v=3',
       description:
         '10 canções que celebram a ação transformadora de Deus em cada vida — cura interior, vocação e o chamado para sermos instrumentos de Sua graça.',

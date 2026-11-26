@@ -9,7 +9,7 @@ import { CONFIG } from './config.js';
 import { SEED_DATA } from './seed-data.js';
 
 const STORAGE_KEY = 'mrv_app_state_v1';
-const DATA_VERSION = 15;
+const DATA_VERSION = 16;
 const VOTED_POLLS_KEY = 'mrv_voted_polls_v1';
 const PRAYED_IDS_KEY = 'mrv_prayed_ids_v1';
 const ADMIN_SESSION_KEY = 'mrv_admin_session_v1';
@@ -87,6 +87,7 @@ class AppStore {
             if (!seedAlb) return alb;
             return {
               ...alb,
+              year: seedAlb.year,
               cover: seedAlb.cover,
               releaseDate: seedAlb.releaseDate,
               youtubeUrl: seedAlb.youtubeUrl,

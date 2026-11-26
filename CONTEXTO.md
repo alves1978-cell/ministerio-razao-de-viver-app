@@ -19,7 +19,7 @@
 - **Formato:** Web App instalável (**PWA**) em HTML5, CSS3 e JavaScript modular (ES Modules), sem build nem dependência de Node.js — funciona direto no **GitHub Pages** gratuitamente e instala no Android e iPhone.
 - **Visual:** Tema escuro elegante (`#0B0A09`) com detalhes em dourado/âmbar (`#E6A93B`), mobile-first com barra inferior fixa no celular e menu lateral no desktop.
 - **Ícone oficial:** Marca **RV + Cruz** aplicada em `assets/img/icon-192.png` e `assets/img/icon-512.png`.
-- **Banco de dados:** Conectado ao **Supabase gratuito** (projeto `razaodeviver.oficial` — `https://luqsdvbjjvalgtymtnee.supabase.co`, tabelas + RLS + RPCs aplicados via `supabase/schema.sql`), com fallback automático para Modo Local (`DATA_VERSION = 15`) caso fique offline.
+- **Banco de dados:** Conectado ao **Supabase gratuito** (projeto `razaodeviver.oficial` — `https://luqsdvbjjvalgtymtnee.supabase.co`, tabelas + RLS + RPCs aplicados via `supabase/schema.sql`), com fallback automático para Modo Local (`DATA_VERSION = 16`) caso fique offline.
 
 ---
 
@@ -44,7 +44,7 @@
 - [x] **Agenda real cadastrada** (`js/seed-data.js`): **FEMUP 2026** (28/11/2026 às 13:45 com cartaz oficial `assets/img/evento-femup-2026.jpg` visualizável em modal), **Rosas de Guadalupe — Festa da Padroeira** (12/12/2026 às 19:30) e **Santa Missa Dominical** (Domingos às 07:00), todos na Paróquia Nossa Senhora de Guadalupe — Travessa Chiapas, s/n, Inhaúma, RJ.
 - [x] **Cancioneiro Oficial em PDF disponível para download** (`assets/docs/cancioneiro-ministerio-razao-de-viver.pdf`, 44 páginas com todas as 20 faixas em versões Letra e Letra + Cifra) na seção **Músicas & Cifras (`#music`)** e atalho no **Início (`#home`)**.
 - [x] **Supabase ativado na nuvem** (`razaodeviver.oficial` — `luqsdvbjjvalgtymtnee.supabase.co`): tabelas, segurança RLS, RPCs (`increment_prayer_count`, `vote_poll_option`), 2 álbuns, 3 eventos reais e enquete inicial criados e integrados em `js/config.js`.
-- [x] **Publicação online no GitHub Pages** com HTTPS e Service Worker (`sw.js`, cache `razao-de-viver-v20`).
+- [x] **Publicação online no GitHub Pages** com HTTPS e Service Worker (`sw.js`, cache `razao-de-viver-v21`).
 
 ---
 
