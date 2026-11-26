@@ -640,7 +640,8 @@ function renderAdminSettings(body, ctx, refresh) {
           <div class="field"><label>Link do Amazon Music</label><input id="st-amz" class="input" value="${esc(s.amazonMusicUrl || '')}" /></div>
           <div class="field"><label>Link do TIDAL</label><input id="st-tdl" class="input" value="${esc(s.tidalUrl || '')}" /></div>
           <div class="field"><label>Link do Spotify</label><input id="st-sp" class="input" value="${esc(s.spotifyUrl || '')}" /></div>
-          <div class="field"><label>WhatsApp de Convites (somente números com 55+DDD)</label><input id="st-wa" class="input" value="${esc(s.whatsappNumber)}" placeholder="5521999999999" /></div>
+          <div class="field"><label>WhatsApp de Convites (somente números com 55+DDD)</label><input id="st-wa" class="input" value="${esc(s.whatsappNumber)}" placeholder="5521992412774" /></div>
+          <div class="field"><label>E-mail de Contato</label><input id="st-email" class="input" type="email" value="${esc(s.contactEmail || '')}" placeholder="ministeriorazaodeviver@gmail.com" /></div>
           <div class="field"><label>Aviso em Destaque na Tela Inicial</label><input id="st-notice" class="input" value="${esc(s.heroNotice)}" /></div>
         </div>
         <div class="field">
@@ -690,6 +691,7 @@ function renderAdminSettings(body, ctx, refresh) {
       amazonMusicUrl: body.querySelector('#st-amz').value.trim(),
       tidalUrl: body.querySelector('#st-tdl').value.trim(),
       whatsappNumber: body.querySelector('#st-wa').value.trim(),
+      contactEmail: body.querySelector('#st-email').value.trim(),
       heroNotice: body.querySelector('#st-notice').value.trim(),
       aboutBio: body.querySelector('#st-bio').value.trim(),
       missionQuote: body.querySelector('#st-quote').value.trim(),

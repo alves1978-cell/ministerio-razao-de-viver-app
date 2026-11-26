@@ -19,7 +19,7 @@
 - **Formato:** Web App instalável (**PWA**) em HTML5, CSS3 e JavaScript modular (ES Modules), sem build nem dependência de Node.js — funciona direto no **GitHub Pages** gratuitamente e instala no Android e iPhone.
 - **Visual:** Tema escuro elegante (`#0B0A09`) com detalhes em dourado/âmbar (`#E6A93B`), mobile-first com barra inferior fixa no celular e menu lateral no desktop.
 - **Ícone oficial:** Marca **RV + Cruz** aplicada em `assets/img/icon-192.png` e `assets/img/icon-512.png`.
-- **Banco de dados:** Atualmente em **Modo Local** (`localStorage` com migração automática por `DATA_VERSION = 5` em `js/store.js`, PIN admin padrão `2026` em `js/config.js`), já estruturado para conectar ao **Supabase gratuito** (`supabase/schema.sql`) assim que o ministério quiser sincronização em tempo real entre todos os usuários.
+- **Banco de dados:** Conectado ao **Supabase gratuito** (projeto `razaodeviver.oficial` — `https://luqsdvbjjvalgtymtnee.supabase.co`, tabelas + RLS + RPCs aplicados via `supabase/schema.sql`), com fallback automático para Modo Local (`DATA_VERSION = 15`) caso fique offline.
 
 ---
 
@@ -31,25 +31,25 @@
   - **Interagir (`#interact`):** Pedidos de Oração (mural público com *"Estou rezando"* + opção sigilosa), Convites de Eventos (com botão WhatsApp) e Enquete de Repertório.
   - **Sobre (`#about`):** História, versículo, formação/integrantes, mapa da paróquia e guia de instalação no celular.
 - [x] **Painel Administrativo da Banda** (`#admin`, `js/ui-admin.js`): CRUD de Agenda, CDs/Faixas/Cifras com prévia ao vivo, moderação de Pedidos de Oração, gestão de Convites (com resposta direta no WhatsApp), Enquetes, Configurações/Links e Backup JSON.
-- [x] **Links oficiais integrados** (YouTube Topic, YouTube Music, Apple Music, Deezer, Amazon Music, TIDAL; Spotify com link de busca até confirmar URLs diretas dos álbuns).
+- [x] **Links oficiais integrados** em todas as plataformas (Spotify direto para os 2 álbuns, YouTube Topic, YouTube Music, Apple Music, Deezer, Amazon Music e TIDAL).
 - [x] **Capas oficiais dos 2 CDs aplicadas:**
   - `assets/img/capa-eu-nao-morri-em-vao.jpg`
   - `assets/img/capa-minha-obra.jpg`
-- [x] **Discografia completa (20 faixas com cifras):**
-  - **CD "Eu Não Morri em Vão" (10 faixas):** grades harmônicas oficiais (Enivaldo) com compassos `|`, ritornelos `||: :||`, `%`, `Fº` e transposição funcionando.
+- [x] **Discografia completa (20 faixas com letras e cifras em formato de cancioneiro):**
+  - **CD "Eu Não Morri em Vão" (10 faixas):** todas as 10 faixas com letras completas, links individuais do YouTube Music e cifras oficiais (grade Enivaldo) alinhadas em formato de cancioneiro (`[Acorde]sílaba`), com transposição e modo *Só Letra* funcionando.
   - **CD "Minha Obra" (10 faixas):** *Revelar, Cura, Coragem, Estou Aqui, Grão de Areia, Identidade, Combate, Fidelidade, Por Tudo, Sou Teu* — letras revisadas e cifras em formato de cancioneiro (`[Acorde]sílaba`) prontas para ajuste fino no Painel da Banda.
-- [x] **Publicação online no GitHub Pages** com HTTPS e Service Worker (`sw.js`, cache `razao-de-viver-v6`).
+- [x] **Formação oficial da banda com fotos reais cadastrada** (`js/seed-data.js` → `settings.members` + `assets/img/membro-*.jpg`): Solymar Morais (Voz), Valmir de Melo (Guitarra), Fernando Santos (Baixo) e Luis Carlos (Bateria).
+- [x] **Foto real da banda aplicada no banner inicial** (`assets/img/hero-bg.jpg`, quarteto acústico).
+- [x] **Contato oficial atualizado** (`js/seed-data.js`): WhatsApp `(21) 99241-2774` (`5521992412774`) e e-mail `ministeriorazaodeviver@gmail.com` integrados em Convites, Sobre e Painel Admin.
+- [x] **Agenda real cadastrada** (`js/seed-data.js`): **FEMUP 2026** (28/11/2026 às 13:45 com cartaz oficial `assets/img/evento-femup-2026.jpg` visualizável em modal), **Rosas de Guadalupe — Festa da Padroeira** (12/12/2026 às 19:30) e **Santa Missa Dominical** (Domingos às 07:00), todos na Paróquia Nossa Senhora de Guadalupe — Travessa Chiapas, s/n, Inhaúma, RJ.
+- [x] **Supabase ativado na nuvem** (`razaodeviver.oficial` — `luqsdvbjjvalgtymtnee.supabase.co`): tabelas, segurança RLS, RPCs (`increment_prayer_count`, `vote_poll_option`), 2 álbuns, 3 eventos reais e enquete inicial criados e integrados em `js/config.js`.
+- [x] **Publicação online no GitHub Pages** com HTTPS e Service Worker (`sw.js`, cache `razao-de-viver-v17`).
 
 ---
 
 ## 4. Próximos Passos Pendentes (Para Retomar Depois)
-- [ ] Cadastrar os **nomes reais dos integrantes** da banda e seus instrumentos/funções (`js/seed-data.js` → `settings.members`).
-- [ ] Atualizar o **WhatsApp oficial** de convites (`js/seed-data.js` → `settings.whatsappNumber`, atualmente placeholder `5521999999999`) e o e-mail de contato.
-- [ ] Cadastrar a **agenda real** de missas, ensaios, retiros e eventos da banda.
-- [ ] Revisar com os músicos eventuais detalhes de letras/acordes das 10 faixas preliminares do CD *"Minha Obra"* (e adicionar letras das 10 faixas de *"Eu Não Morri em Vão"* se desejarem).
-- [ ] Confirmar e colar os **links diretos do Spotify** para os 2 álbuns (se disponíveis).
-- [ ] Trocar a foto de fundo do banner inicial (`assets/img/hero-bg.jpg`) por uma foto real da banda tocando (opcional).
-- [ ] **Ativar Supabase gratuito** (quando aprovarem a prévia com a banda): rodar `supabase/schema.sql`, criar login da banda em *Authentication → Users* e preencher `supabaseUrl` e `supabaseAnonKey` em `js/config.js` para que agenda, orações, convites e enquetes funcionem em tempo real para todo o público.
+- [ ] Criar o usuário administrador da banda no Supabase (*Authentication → Users → Add user*, ex.: `ministeriorazaodeviver@gmail.com` + senha escolhida pela banda) para fazer login no Painel Admin (`#admin`).
+- [ ] Revisar com os músicos eventuais detalhes de letras/posição dos acordes das faixas dos 2 CDs (incluindo o verso marcado para revisão em *"Mãe da Igreja"*).
 
 ---
 

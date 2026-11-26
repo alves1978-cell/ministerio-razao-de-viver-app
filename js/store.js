@@ -9,7 +9,7 @@ import { CONFIG } from './config.js';
 import { SEED_DATA } from './seed-data.js';
 
 const STORAGE_KEY = 'mrv_app_state_v1';
-const DATA_VERSION = 5;
+const DATA_VERSION = 15;
 const VOTED_POLLS_KEY = 'mrv_voted_polls_v1';
 const PRAYED_IDS_KEY = 'mrv_prayed_ids_v1';
 const ADMIN_SESSION_KEY = 'mrv_admin_session_v1';
@@ -81,6 +81,7 @@ class AppStore {
           this.state.settings.deezerUrl = SEED_DATA.settings.deezerUrl;
           this.state.settings.amazonMusicUrl = SEED_DATA.settings.amazonMusicUrl;
           this.state.settings.tidalUrl = SEED_DATA.settings.tidalUrl;
+          this.state.settings.spotifyUrl = SEED_DATA.settings.spotifyUrl;
           this.state.albums = (this.state.albums || []).map((alb) => {
             const seedAlb = SEED_DATA.albums.find((s) => s.id === alb.id);
             if (!seedAlb) return alb;
@@ -108,6 +109,23 @@ class AppStore {
             const otherTracks = (this.state.tracks || []).filter((t) => t.albumId !== 'alb-minha-obra');
             const minhaObraTracks = clone(SEED_DATA.tracks.filter((t) => t.albumId === 'alb-minha-obra'));
             this.state.tracks = [...otherTracks, ...minhaObraTracks];
+          }
+          if ((parsed._dataVersion || 1) < 8) {
+            // Atualiza CD "Eu Não Morri em Vão" (todas as 10 faixas com letras + cifras inline e links YouTube Music)
+            this.state.tracks = (this.state.tracks || []).map((trk) => {
+              const seedTrk = SEED_DATA.tracks.find((s) => s.id === trk.id && s.albumId === 'alb-eu-nao-morri');
+              return seedTrk
+                ? { ...trk, listenUrl: seedTrk.listenUrl || trk.listenUrl, lyricsChords: seedTrk.lyricsChords }
+                : trk;
+            });
+          }
+          if ((parsed._dataVersion || 1) < 12) {
+            this.state.settings.members = clone(SEED_DATA.settings.members);
+            this.state.settings.whatsappNumber = SEED_DATA.settings.whatsappNumber;
+            this.state.settings.contactEmail = SEED_DATA.settings.contactEmail;
+          }
+          if ((parsed._dataVersion || 1) < 15) {
+            this.state.events = clone(SEED_DATA.events);
           }
           this.state._dataVersion = DATA_VERSION;
           this.saveLocal();
@@ -140,6 +158,17 @@ class AppStore {
       this.supabase.from('polls').select('*').order('created_at', { ascending: false }),
     ]);
 
+    for (const [label, res] of [
+      ['settings', settingsRes],
+      ['albums', albumsRes],
+      ['tracks', tracksRes],
+      ['events', eventsRes],
+      ['prayers', prayersRes],
+      ['polls', pollsRes],
+    ]) {
+      if (res?.error) console.warn(`[Supabase] Falha ao ler ${label}:`, res.error.message);
+    }
+
     if (settingsRes.data?.data) {
       this.state.settings = { ...SEED_DATA.settings, ...settingsRes.data.data };
     }
@@ -160,7 +189,8 @@ class AppStore {
       }));
     }
     if (tracksRes.data?.length) {
-      this.state.tracks = tracksRes.data.map((t) => ({
+      // Mescla com SEED_DATA.tracks para que editar 1 faixa na nuvem nunca esconda as demais
+      const remoteById = new Map(tracksRes.data.map((t) => [t.id, {
         id: t.id,
         albumId: t.album_id,
         number: t.track_number,
@@ -170,7 +200,14 @@ class AppStore {
         bpm: t.bpm || '',
         listenUrl: t.listen_url || '',
         lyricsChords: t.lyrics_chords || '',
-      }));
+      }]));
+      const merged = SEED_DATA.tracks.map((seedTrk) => remoteById.get(seedTrk.id) || clone(seedTrk));
+      tracksRes.data.forEach((t) => {
+        if (!SEED_DATA.tracks.some((s) => s.id === t.id)) {
+          merged.push(remoteById.get(t.id));
+        }
+      });
+      this.state.tracks = merged;
     }
     if (eventsRes.data) {
       this.state.events = eventsRes.data.map((e) => ({
@@ -182,6 +219,7 @@ class AppStore {
         location: e.location,
         address: e.address || '',
         description: e.description || '',
+        poster: e.poster_url || '',
         featured: Boolean(e.featured),
       }));
     }
@@ -402,6 +440,7 @@ class AppStore {
 
   async saveEvent(evt) {
     const isNew = !evt.id;
+    const existing = !isNew ? this.state.events.find((e) => e.id === evt.id) : null;
     const record = {
       id: evt.id || uid('evt'),
       title: evt.title.trim(),
@@ -411,6 +450,7 @@ class AppStore {
       location: evt.location.trim(),
       address: (evt.address || '').trim(),
       description: (evt.description || '').trim(),
+      poster: evt.poster !== undefined ? evt.poster : (existing?.poster || ''),
       featured: Boolean(evt.featured),
     };
 
@@ -424,6 +464,7 @@ class AppStore {
         location: record.location,
         address: record.address,
         description: record.description,
+        poster_url: record.poster || null,
         featured: record.featured,
       });
       await this.refreshFromSupabase();

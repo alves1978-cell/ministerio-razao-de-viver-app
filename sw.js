@@ -1,4 +1,4 @@
-const CACHE_NAME = 'razao-de-viver-v6';
+const CACHE_NAME = 'razao-de-viver-v17';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -16,6 +16,11 @@ const CORE_ASSETS = [
   './assets/img/hero-bg.jpg',
   './assets/img/capa-eu-nao-morri-em-vao.jpg',
   './assets/img/capa-minha-obra.jpg',
+  './assets/img/membro-solymar.jpg',
+  './assets/img/membro-valmir.jpg',
+  './assets/img/membro-fernando.jpg',
+  './assets/img/membro-luis.jpg',
+  './assets/img/evento-femup-2026.jpg',
 ];
 
 self.addEventListener('install', (event) => {

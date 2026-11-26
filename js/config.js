@@ -13,7 +13,7 @@ export const CONFIG = {
   // ou use Login com E-mail/Senha do Supabase ao ativar o Modo Nuvem).
   localAdminPin: '2026',
 
-  // Preencha para conectar ao banco gratuito do Supabase (opcional para testes locais):
-  supabaseUrl: '',
-  supabaseAnonKey: '',
+  // Banco de dados na nuvem (Supabase — projeto razaodeviver.oficial):
+  supabaseUrl: 'https://luqsdvbjjvalgtymtnee.supabase.co',
+  supabaseAnonKey: 'sb_publishable_g2l_p8-q5OfwEWzWLeQLWw_N6TNUYIs',
 };

@@ -101,18 +101,41 @@ export function renderChordSheet(rawText, { showChords = true, semitones = 0, pr
   const lines = rawText.replace(/\r\n/g, '\n').split('\n');
   const htmlLines = [];
 
-  for (const line of lines) {
+  function isSectionHeader(str) {
+    const m = str.match(/^(?:\[|\{)([^\]\}]{2,48})(?:\]|\})$/);
+    return m && !CHORD_TOKEN_RE.test(m[1].trim()) ? m[1] : null;
+  }
+
+  function hasLyricContentInSection(startIdx) {
+    for (let j = startIdx + 1; j < lines.length; j++) {
+      const next = lines[j].trim();
+      if (!next) continue;
+      if (isSectionHeader(next)) return false;
+      if (/\[[A-G][^\]]*\]/.test(next)) {
+        if (next.replace(/\[[^\]]+\]/g, '').trim()) return true;
+        continue;
+      }
+      if (!isChordLine(next)) return true;
+    }
+    return false;
+  }
+
+  for (let idx = 0; idx < lines.length; idx++) {
+    const line = lines[idx];
     const trimmed = line.trim();
 
     if (!trimmed) {
-      htmlLines.push('<div class="lyric-spacer"></div>');
+      if (htmlLines.length && htmlLines[htmlLines.length - 1] !== '<div class="lyric-spacer"></div>') {
+        htmlLines.push('<div class="lyric-spacer"></div>');
+      }
       continue;
     }
 
     // Cabeçalho de seção: [Intro], [Voz], [Banda], [Solo], [Refrão], [Final (Intro)], etc.
-    const sectionMatch = trimmed.match(/^(?:\[|\{)([^\]\}]{2,42})(?:\]|\})$/);
-    if (sectionMatch && !CHORD_TOKEN_RE.test(sectionMatch[1].trim())) {
-      htmlLines.push(`<div class="lyric-section-tag">${escapeHtml(sectionMatch[1])}</div>`);
+    const sectionTitle = isSectionHeader(trimmed);
+    if (sectionTitle) {
+      if (!showChords && !hasLyricContentInSection(idx)) continue;
+      htmlLines.push(`<div class="lyric-section-tag">${escapeHtml(sectionTitle)}</div>`);
       continue;
     }
 
@@ -120,6 +143,7 @@ export function renderChordSheet(rawText, { showChords = true, semitones = 0, pr
     if (/\[[A-G][^\]]*\]/.test(line)) {
       if (!showChords) {
         const plain = line.replace(/\[[^\]]+\]/g, '');
+        if (!plain.trim()) continue;
         htmlLines.push(`<div class="lyric-line-plain">${escapeHtml(plain)}</div>`);
       } else {
         const parts = line.split(/(\[[^\]]+\])/g);

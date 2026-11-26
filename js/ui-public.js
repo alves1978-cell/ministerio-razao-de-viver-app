@@ -20,7 +20,16 @@ export function esc(str) {
 const MONTHS_PT = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
 
 export function parseEventDate(isoDate) {
-  if (!isoDate || !isoDate.includes('-')) return { day: '--', month: '---', full: isoDate || '' };
+  if (!isoDate) return { day: '--', month: '---', full: '' };
+  if (!isoDate.includes('-')) {
+    const label = String(isoDate).trim();
+    const isWeekly = /^doming|^segund|^terç|^terc|^quart|^quint|^sext|^sábad|^sabad/i.test(label);
+    return {
+      day: label.slice(0, 3).toUpperCase(),
+      month: isWeekly ? 'SEMANAL' : 'FIXO',
+      full: label,
+    };
+  }
   const [y, m, d] = isoDate.split('-');
   const monthIdx = Math.max(0, Math.min(11, parseInt(m, 10) - 1));
   return {
@@ -56,7 +65,7 @@ function renderPlatformsStrip(settings) {
     { label: 'Deezer', sub: 'Álbum oficial', url: settings.deezerUrl, cls: 'plat-deezer', icon: '◈' },
     { label: 'Amazon Music', sub: 'Álbum oficial', url: settings.amazonMusicUrl, cls: 'plat-amazon', icon: '♬' },
     { label: 'TIDAL', sub: 'Áudio HiFi', url: settings.tidalUrl, cls: 'plat-tidal', icon: '❖' },
-    { label: 'Spotify', sub: 'Buscar banda', url: settings.spotifyUrl, cls: 'plat-spotify', icon: '◉' },
+    { label: 'Spotify', sub: 'Álbum oficial', url: settings.spotifyUrl, cls: 'plat-spotify', icon: '◉' },
     { label: 'Instagram', sub: settings.instagramHandle || '@razaodeviver.oficial', url: settings.instagramUrl, cls: 'plat-insta', icon: '◎' },
   ].filter((p) => p.url);
 
@@ -85,7 +94,7 @@ export function renderHome(container, ctx) {
 
   container.innerHTML = `
     <section class="hero-card">
-      <img src="./assets/img/hero-bg.jpg" alt="Ministério Razão de Viver" class="hero-bg" />
+      <img src="./assets/img/hero-bg.jpg?v=2" alt="Ministério Razão de Viver" class="hero-bg" />
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-pill">✝ ${esc(settings.parish)}</div>
@@ -142,6 +151,7 @@ export function renderHome(container, ctx) {
               ${alb.deezerUrl ? `<a class="btn btn-dark btn-sm" href="${esc(alb.deezerUrl)}" target="_blank" rel="noopener">Deezer</a>` : ''}
               ${alb.amazonMusicUrl ? `<a class="btn btn-dark btn-sm" href="${esc(alb.amazonMusicUrl)}" target="_blank" rel="noopener">Amazon</a>` : ''}
               ${alb.tidalUrl ? `<a class="btn btn-dark btn-sm" href="${esc(alb.tidalUrl)}" target="_blank" rel="noopener">TIDAL</a>` : ''}
+              ${alb.spotifyUrl ? `<a class="btn btn-dark btn-sm" href="${esc(alb.spotifyUrl)}" target="_blank" rel="noopener">Spotify</a>` : ''}
             </div>
           </article>
         `;
@@ -392,6 +402,7 @@ function openTrackSheetModal(track, ctx) {
 
       <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;">
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          ${album?.spotifyUrl ? `<a class="btn btn-dark btn-sm" href="${esc(album.spotifyUrl)}" target="_blank" rel="noopener">◉ Spotify</a>` : ''}
           ${album?.youtubeMusicUrl ? `<a class="btn btn-dark btn-sm" href="${esc(track.listenUrl || album.youtubeMusicUrl)}" target="_blank" rel="noopener">♫ YouTube Music</a>` : ''}
           ${album?.youtubeUrl ? `<a class="btn btn-dark btn-sm" href="${esc(album.youtubeUrl)}" target="_blank" rel="noopener">▶ YouTube</a>` : ''}
           ${album?.appleMusicUrl ? `<a class="btn btn-dark btn-sm" href="${esc(album.appleMusicUrl)}" target="_blank" rel="noopener">♪ Apple Music</a>` : ''}
@@ -502,6 +513,7 @@ export function renderAgenda(container, ctx) {
               </div>
               ${evt.description ? `<p class="event-desc">${esc(evt.description)}</p>` : ''}
               <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                ${evt.poster ? `<button class="btn btn-gold btn-sm" data-poster-event="${esc(evt.id)}">🖼 Ver Cartaz</button>` : ''}
                 <a class="btn btn-outline btn-sm" href="${mapsUrl(evt.address, evt.location)}" target="_blank" rel="noopener">
                   📍 Abrir no Mapa
                 </a>
@@ -529,6 +541,19 @@ export function renderAgenda(container, ctx) {
     btn.addEventListener('click', () => {
       uiState.agendaCategory = btn.dataset.cat;
       renderAgenda(container, ctx);
+    });
+  });
+
+  container.querySelectorAll('[data-poster-event]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const evt = events.find((e) => e.id === btn.dataset.posterEvent);
+      if (!evt || !evt.poster) return;
+      const dt = parseEventDate(evt.date);
+      ctx.openModal({
+        title: evt.title,
+        subtitle: `📅 ${dt.full} às ${evt.time} • 📍 ${evt.location}`,
+        html: `<div style="text-align:center;"><img src="${esc(evt.poster)}" alt="Cartaz ${esc(evt.title)}" style="max-width:100%;max-height:72vh;border-radius:14px;border:1px solid var(--border-strong);" /></div>`,
+      });
     });
   });
 
@@ -872,15 +897,43 @@ export function renderAbout(container, ctx) {
     </div>
 
     <div class="members-grid">
-      ${members.map((m) => `
-        <div class="member-card">
-          <div class="member-avatar">${esc(m.name.slice(0, 2).toUpperCase())}</div>
-          <div>
-            <div style="font-weight:700;font-size:0.95rem;">${esc(m.name)}</div>
-            <div style="font-size:0.8rem;color:var(--text-muted);">${esc(m.role)}</div>
+      ${members.map((m) => {
+        const parts = String(m.name || '').trim().split(/\s+/).filter((p) => !/^(de|da|do|dos|das)$/i.test(p));
+        const initials = parts.length >= 2
+          ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+          : String(m.name || '').slice(0, 2).toUpperCase();
+        const pos = m.photoPos || '50% 35%';
+        const scale = m.photoScale && m.photoScale !== 1 ? `transform:scale(${Number(m.photoScale)});transform-origin:${esc(pos)};` : '';
+        if (m.photo) {
+          return `
+            <article class="member-card member-card-photo">
+              <div class="member-photo-wrap">
+                <img
+                  src="${esc(m.photo)}"
+                  alt="${esc(m.name)} — ${esc(m.role)}"
+                  class="member-photo"
+                  style="object-position:${esc(pos)};${scale}"
+                  loading="lazy"
+                />
+                <div class="member-photo-fade"></div>
+              </div>
+              <div class="member-caption">
+                <div class="member-name">${esc(m.name)}</div>
+                <div class="member-role">${esc(m.role)}</div>
+              </div>
+            </article>
+          `;
+        }
+        return `
+          <div class="member-card">
+            <div class="member-avatar">${esc(initials)}</div>
+            <div>
+              <div class="member-name">${esc(m.name)}</div>
+              <div class="member-role">${esc(m.role)}</div>
+            </div>
           </div>
-        </div>
-      `).join('')}
+        `;
+      }).join('')}
     </div>
 
     <div class="section-header">
@@ -899,6 +952,8 @@ export function renderAbout(container, ctx) {
         <a class="btn btn-outline btn-sm" href="${mapsUrl(settings.parish + ', ' + settings.neighborhood)}" target="_blank" rel="noopener">
           📍 Ver no Mapa
         </a>
+        ${settings.whatsappNumber ? `<a class="btn btn-success btn-sm" href="${whatsappLink(settings.whatsappNumber, 'Olá, Ministério Razão de Viver! 🙏🎵')}" target="_blank" rel="noopener">💬 WhatsApp</a>` : ''}
+        ${settings.contactEmail ? `<a class="btn btn-dark btn-sm" href="mailto:${esc(settings.contactEmail)}">✉ ${esc(settings.contactEmail)}</a>` : ''}
         <a class="btn btn-gold btn-sm" href="${esc(settings.instagramUrl)}" target="_blank" rel="noopener">
           ◎ Seguir ${esc(settings.instagramHandle)}
         </a>

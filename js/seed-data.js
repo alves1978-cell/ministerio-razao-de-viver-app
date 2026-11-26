@@ -10,24 +10,24 @@ export const SEED_DATA = {
     neighborhood: 'Complexo do Alemão — Rio de Janeiro, RJ',
     instagramHandle: '@razaodeviver.oficial',
     instagramUrl: 'https://www.instagram.com/razaodeviver.oficial/',
-    spotifyUrl: 'https://open.spotify.com/search/Minist%C3%A9rio%20Raz%C3%A3o%20de%20Viver',
+    spotifyUrl: 'https://open.spotify.com/intl-pt/album/2LAzjFP68xMJDWUUe91R5F',
     youtubeUrl: 'https://www.youtube.com/channel/UChgi_VG-Ez5u1rJnSK5gNUA/releases',
     youtubeMusicUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_mtfnEn_iW-hJfpXxN67cfxrT7LX-CC6Zk',
     appleMusicUrl: 'https://music.apple.com/br/album/minha-obra/1713821377',
     deezerUrl: 'https://www.deezer.com/album/504873081',
     amazonMusicUrl: 'https://music.amazon.com/albums/B0CLWYJRW5',
     tidalUrl: 'https://tidal.com/browse/album/324558289',
-    whatsappNumber: '5521999999999',
-    contactEmail: 'contato@razaodeviver.com.br',
+    whatsappNumber: '5521992412774',
+    contactEmail: 'ministeriorazaodeviver@gmail.com',
     heroNotice: 'Ouça nossos dois CDs nas plataformas digitais e envie seu pedido de oração!',
     aboutBio:
       'O Ministério Razão de Viver nasceu na Paróquia Nossa Senhora de Guadalupe, no Complexo do Alemão (Rio de Janeiro - RJ), com a missão de anunciar o Evangelho por meio da música católica. Com dois CDs gravados — "Eu Não Morri em Vão" e "Minha Obra" — levamos louvor, adoração e esperança para missas, grupos de oração, retiros e eventos em toda a comunidade e além.',
     missionQuote: '“Cantai ao Senhor um cântico novo, porque Ele fez maravilhas.” — Salmo 98,1',
     members: [
-      { id: 'm1', name: 'Equipe de Vozes', role: 'Vocais & Ministração' },
-      { id: 'm2', name: 'Cordas & Harmonia', role: 'Violão, Guitarra & Baixo' },
-      { id: 'm3', name: 'Teclas & Percussão', role: 'Teclado & Bateria' },
-      { id: 'm4', name: 'Intercessão & Mídia', role: 'Oração, Som & Evangelização Digital' },
+      { id: 'm1', name: 'Solymar Morais', role: 'Voz', photo: './assets/img/membro-solymar.jpg', photoPos: '50% 30%', photoScale: 1.05 },
+      { id: 'm2', name: 'Valmir de Melo', role: 'Guitarra', photo: './assets/img/membro-valmir.jpg', photoPos: '56% 42%', photoScale: 1.55 },
+      { id: 'm3', name: 'Fernando Santos', role: 'Baixo', photo: './assets/img/membro-fernando.jpg', photoPos: '48% 55%', photoScale: 2.15 },
+      { id: 'm4', name: 'Luis Carlos', role: 'Bateria', photo: './assets/img/membro-luis.jpg?v=2', photoPos: '50% 35%', photoScale: 1.0 },
     ],
   },
 
@@ -40,7 +40,7 @@ export const SEED_DATA = {
       cover: './assets/img/capa-eu-nao-morri-em-vao.jpg?v=4',
       description:
         'Um convite profundo à fé, ao perdão e à esperança no amor redentor de Cristo. Reúne 10 canções de adoração, entrega e devoção mariana.',
-      spotifyUrl: 'https://open.spotify.com/search/Minist%C3%A9rio%20Raz%C3%A3o%20de%20Viver',
+      spotifyUrl: 'https://open.spotify.com/intl-pt/album/5mzHspGLcO4W63muX8bvrH',
       youtubeUrl: 'https://www.youtube.com/playlist?list=OLAK5uy_mGogJUuDO79hlbUGs-uAjOo2Kg0PX6cvQ',
       youtubeMusicUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_mGogJUuDO79hlbUGs-uAjOo2Kg0PX6cvQ',
       appleMusicUrl: 'https://music.apple.com/br/album/eu-n%C3%A3o-morri-em-v%C3%A3o/1713822740',
@@ -56,7 +56,7 @@ export const SEED_DATA = {
       cover: './assets/img/capa-minha-obra.jpg?v=3',
       description:
         '10 canções que celebram a ação transformadora de Deus em cada vida — cura interior, vocação e o chamado para sermos instrumentos de Sua graça.',
-      spotifyUrl: 'https://open.spotify.com/search/Minist%C3%A9rio%20Raz%C3%A3o%20de%20Viver',
+      spotifyUrl: 'https://open.spotify.com/intl-pt/album/2LAzjFP68xMJDWUUe91R5F',
       youtubeUrl: 'https://www.youtube.com/playlist?list=OLAK5uy_mtfnEn_iW-hJfpXxN67cfxrT7LX-CC6Zk',
       youtubeMusicUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_mtfnEn_iW-hJfpXxN67cfxrT7LX-CC6Zk',
       appleMusicUrl: 'https://music.apple.com/br/album/minha-obra/1713821377',
@@ -67,7 +67,7 @@ export const SEED_DATA = {
   ],
 
   tracks: [
-    // CD 1: Eu Não Morri em Vão (Todas as 10 cifras oficiais — Arranjo/Grade: Enivaldo)
+    // CD 1: Eu Não Morri em Vão (Letras + Cifras alinhadas sobre a letra com base na grade oficial do Enivaldo)
     {
       id: 'trk-1',
       albumId: 'alb-eu-nao-morri',
@@ -76,29 +76,38 @@ export const SEED_DATA = {
       duration: '4:32',
       key: 'A',
       bpm: '',
-      listenUrl: '',
+      listenUrl: 'https://music.youtube.com/watch?v=6MaAUzMMDTU',
       lyricsChords: `[Intro]
-||: A9 | F#m7 | D9 | E  D/F#  E/G# :||
+A9   F#m7   D9   E  D/F#  E/G#   (2x)
 
-[Voz]
-||: A9 | F#m7 | D9  Bm7 | E :|| E4  E |
+[Verso]
+[A9]Eu sei que está difícil, eu sei que [F#m7]está pesado
+[D9]Eu sei que o fardo é [Bm7]grande, mas Eu ca[E]minho a teu lado
+[A9]Eu sei que a dor existe, conheço as [F#m7]tribulações
+[D9]Eu sei que andavas [Bm7]triste, Eu ouço [E]suas ora[E4]ções  [E]  (2x)
 
-[Banda]
-||: A9 | F#m7 | D9  Bm7 | E :|| D  E |
-| F#m7 | D  E | F#m7 | D9 | E | D9 |
-| E | A | E  Fº | F#m7  D | E | A |
-| E  Fº | F#m7  A/E | D  Bm7 | E | % |
+[Pré-Refrão]
+[F#m7]Mas Eu sei também que você não [D]deve desis[E]tir
+[F#m7]Ignorando a sua mis[D9]são  [E]
+[D9]Você é Meu filho a[E]mado (2x)
+
+[Refrão]
+[A]Então vai e não [E]caias [Fº]mais, [F#m7]mostre ao seu ir[D]mão
+Que Eu não morri em [E]vão
+[A]Vai, e se preci[E]sar, [Fº]olhe [F#m7]para a [A/E]cruz
+[D]Vazia ela es[Bm7]tá, e se alguém pergun[E]tar...
 
 [Solo]
-| A9 | E  Fº | F#m7  D9 | E | % | A9 |
-| E  Fº | F#m7  A/E | D9  Bm7 | E | % |
+A9   E  Fº   F#m7  D9   E   A9   E  Fº   F#m7  A/E   D9  Bm7   E
 
-[Voz]
-| A9 | E  Fº | F#m7  D9 | E | A9 | E  Fº |
-| F#m7  A/E | D9  Bm7 | E | % | F |
-| G | A  D/A | F/A  E/A  D/A ||
+[Refrão Final]
+[A9]Então vai e não [E]caias [Fº]mais, [F#m7]mostre ao seu ir[D9]mão
+Que Eu não morri em [E]vão
+[A9]Vai, e se preci[E]sar, [Fº]olhe [F#m7]para a [A/E]cruz
+[D9]Vazia ela es[Bm7]tá, e se alguém pergun[E]tar...
+[F]Meu nome é, [G]Meu nome é Je[A]sus!  [D/A]  [F/A]  [E/A]  [D/A]
 
-Grade Harmônica / Cifra: Enivaldo`,
+Cifra alinhada da grade harmônica oficial (Enivaldo) — ajustável no Painel da Banda`,
     },
     {
       id: 'trk-2',
@@ -108,20 +117,50 @@ Grade Harmônica / Cifra: Enivaldo`,
       duration: '4:18',
       key: 'D',
       bpm: '',
-      listenUrl: '',
-      lyricsChords: `[Cifra Oficial]
-||: D | G | D | G | Em | A |
-| Em | A :|| A4  A7 | D | A | Bm |
-| F#m | G | D  Bm | C | A |
-| A4  A7 | D | G | D | G | Em |
-| A | Em | A | A4  A7 | D | A |
-| Bm | F#m | G | D  Bm | C |
-| A | A4  A7 | D | A  Bm | F#m |
-| D  A | D | A  Bm | F#m | D |
-| A ||: D | A | Bm | F#m | G |
-| D  Bm | C | A :|| % | D ||
+      listenUrl: 'https://music.youtube.com/watch?v=9RbfehQxUJk',
+      lyricsChords: `[Verso 1]
+[D]Pai, me per[G]doa
+[D]Pai, me so[G]corre
+[Em]Pai, não estou aqui à [A]toa
+[Em]Pai, de quem tudo [A]pode
 
-Grade Harmônica / Cifra: Enivaldo`,
+[Verso 2]
+[D]Pai, eu sei que er[G]rei
+[D]Pai, sei que omi[G]ti
+[Em]Pai, eu sei que pe[A]quei
+[Em]Pai, agora estou a[A]qui  [A4]  [A7]
+
+[Refrão]
+[D]Pai, perdoa os [A]meus pecados
+[Bm]Pai, perdoa a falta de [F#m]oração
+[G]Pai, perdoa toda a [D]humani[Bm]dade
+[C]Pai, perdoa o [A]meu irmão  [A4]  [A7]
+
+[Verso 2]
+[D]Pai, eu sei que er[G]rei
+[D]Pai, sei que omi[G]ti
+[Em]Pai, eu sei que pe[A]quei
+[Em]Pai, agora estou a[A]qui  [A4]  [A7]
+
+[Refrão]
+[D]Pai, perdoa os [A]meus pecados
+[Bm]Pai, perdoa a falta de [F#m]oração
+[G]Pai, perdoa toda a [D]humani[Bm]dade
+[C]Pai, perdoa o [A]meu irmão  [A4]  [A7]
+
+[Ponte]
+[D]Tu és mara[A]vilha em [Bm]minha [F#m]vida
+Com Tua [D]santa prote[A]ção
+[D]Ao pe[A]dido de um [Bm]filho, [F#m]Pai
+[D]Não sabe dizer [A]não
+
+[Refrão Final (2x)]
+[D]Pai, perdoa os [A]meus pecados
+[Bm]Pai, perdoa a falta de [F#m]oração
+[G]Pai, perdoa toda a [D]humani[Bm]dade
+[C]Pai, perdoa o [A]meu irmão  [D]
+
+Cifra alinhada da grade harmônica oficial (Enivaldo) — ajustável no Painel da Banda`,
     },
     {
       id: 'trk-3',
@@ -131,21 +170,50 @@ Grade Harmônica / Cifra: Enivaldo`,
       duration: '3:55',
       key: 'D',
       bpm: '',
-      listenUrl: '',
+      listenUrl: 'https://music.youtube.com/watch?v=oUUImk5Asl0',
       lyricsChords: `[Intro]
-| A9  D9 | E9  D9 | A9  D9 | E9  D9 |
-| A9  D9 | E9  D9 | A9  D9 | E9 |
+A9  D9   E9  D9   A9  D9   E9  D9   (2x)
 
-[Voz]
-||: D | G | D | G | Bm | G |
-| A | % :||: D | G | A | % |
-| D | G | A | % :||
+[Verso 1]
+[D]Não existe dor, [G]não existe sofrimento
+[D]Não existe tristeza, são fra[G]quezas de momento
+[Bm]Que me fazem desa[G]bar
+Minha [A]rocha é Jesus
+
+[Verso 2]
+[D]Mas existe fé, [G]não existe solidão
+[D]Existe a Igreja constru[G]indo a comunhão
+[Bm]Nada faz eu desvi[G]ar
+Da es[A]trada de Jesus
+
+[Refrão]
+[D]Tudo posso nA[G]quele que me forta[A]lece
+[D]Tudo posso nA[G]quele que venceu a [A]morte
+[D]Tudo posso nA[G]quele que ouve minha [A]prece
+[D]Quando estou [G]fraco é que estou [A]forte
+
+[Verso 1]
+[D]Não existe dor, [G]não existe sofrimento
+[D]Não existe tristeza, são fra[G]quezas de momento
+[Bm]Que me fazem desa[G]bar
+Minha [A]rocha é Jesus
+
+[Verso 2]
+[D]Mas existe fé, [G]não existe solidão
+[D]Existe a Igreja constru[G]indo a comunhão
+[Bm]Nada faz eu desvi[G]ar
+Da es[A]trada de Jesus
+
+[Refrão Final]
+[D]Tudo posso nA[G]quele que me forta[A]lece
+[D]Tudo posso nA[G]quele que venceu a [A]morte
+[D]Tudo posso nA[G]quele que ouve minha [A]prece
+[D]Quando estou [G]fraco é que estou [A]forte
 
 [Final (Intro)]
-| A9  D9 | E9  D9 | A9  D9 | E9  D9 |
-| A9  D9 | E9  D9 | A9  D9 | E9 | A ||
+A9  D9   E9  D9   A9  D9   E9  D9   A
 
-Grade Harmônica / Cifra: Enivaldo`,
+Cifra alinhada da grade harmônica oficial (Enivaldo) — ajustável no Painel da Banda`,
     },
     {
       id: 'trk-4',
@@ -155,23 +223,41 @@ Grade Harmônica / Cifra: Enivaldo`,
       duration: '4:10',
       key: 'C',
       bpm: '',
-      listenUrl: '',
+      listenUrl: 'https://music.youtube.com/watch?v=eWwhI0oXdnM',
       lyricsChords: `[Intro]
-| Dm  F | C | Dm  F | C |
+Dm  F   C   Dm  F   C
 
-[Voz]
-| Dm  F | C ||: Dm  F | C | Dm  F |
-| C | Dm  F | C | Dm  F | C :||
-| Am | E | C | G/B  G | Am | E |
-| Am | E | C | G/B  G | C |
-| G/B  G | Am | E | Am | E |
-| F | C | F | C | F | C |
+[Verso 1]
+[Dm]Tomado pelas [F]mãos para as nações derru[C]bar
+[Dm]E diante [F]dele os reis desar[C]mar, disse o Senhor
+[Dm]Eu sou o Se[F]nhor, sem ri[C]val
+[Dm]Eu sou o Se[F]nhor, sem ri[C]val
 
-[Final (X)]
-| F | C | F | C | F | C |
-| F | C | (fade out)
+[Verso 2]
+[Dm]Tomado pelas [F]mãos para as nações derru[C]bar
+[Dm]E diante [F]dele os reis desar[C]mar, disse o Senhor
+[Dm]Eu sou o Se[F]nhor, sem ri[C]val
+[Dm]Eu sou o Se[F]nhor, sem ri[C]val
 
-Grade Harmônica / Cifra: Enivaldo`,
+[Ponte 1]
+[Am]E Eu mesmo diante de [E]ti, aplainando montanhas
+[C]Derrubando os batentes de [G/B]bronze da Babi[G]lônia
+[Am]E arrancando os ferrolhos de [E]ferro
+[Am]Não há outro Deus além de [E]Mim
+
+[Ponte 2]
+[C]Eu te cingi quando tu [G/B]não Me conhe[G]cias
+[C]Para que saibam, do le[G/B]vante ao po[G]ente
+[Am]Porque não existe nada fora de [E]Mim
+[Am]Porque não existe nada fora de [E]Mim
+
+[Refrão Final (repete até o final)]
+Porque Eu [F]sou o Senhor, sem ri[C]val
+Eu [F]sou o Senhor, sem ri[C]val
+Eu [F]sou o Senhor, sem ri[C]val
+Eu [F]sou o Senhor, sem ri[C]val
+
+Cifra alinhada da grade harmônica oficial (Enivaldo) — ajustável no Painel da Banda`,
     },
     {
       id: 'trk-5',
@@ -181,21 +267,63 @@ Grade Harmônica / Cifra: Enivaldo`,
       duration: '4:40',
       key: 'Em',
       bpm: '',
-      listenUrl: '',
+      listenUrl: 'https://music.youtube.com/watch?v=4_zhdH-Dptk',
       lyricsChords: `[Intro]
-| Em | D/F# | G | C  B7 | Em |
-| D/F# | G | C |
+Em   D/F#   G   C  B7   Em   D/F#   G   C
 
-[Cifra Oficial]
-||: Em | D/F# | G | C  B7 :||: Em |
-| D/F#  G | C | G  D :|| Am | C |
-| G | % | Am | C | B7 | % :|| 3X
+[Refrão (2x)]
+[Em]É preciso Te encon[D/F#]trar
+[G]É preciso Te se[C]guir  [B7]
+[Em]É preciso Te to[D/F#]car
+[G]O Senhor está a[C]qui  [B7]
 
-[Final]
-||: Em | D/F# | G | C  B7 | Em |
-| D/F# | G | C  B7 :|| Em ||
+[Verso]
+[Em]O Senhor está [D/F#]dentro de [G]nós
+[C]O Senhor está [G]dentro de [D]mim
+[Em]O Senhor quer ou[D/F#]vir sua [G]voz
+[C]É preciso di[G]zer: "[D]Sim"
 
-Grade Harmônica / Cifra: Enivaldo`,
+[Ponte]
+[Am]O que Maria fa[C]lou eu também quero e posso fa[G]lar
+[Am]Agora que eu posso, Se[C]nhor, tocar e can[B7]tar
+
+[Refrão (2x)]
+[Em]É preciso Te encon[D/F#]trar
+[G]É preciso Te se[C]guir  [B7]
+[Em]É preciso Te to[D/F#]car
+[G]O Senhor está a[C]qui  [B7]
+
+[Verso]
+[Em]O Senhor está [D/F#]dentro de [G]nós
+[C]O Senhor está [G]dentro de [D]mim
+[Em]O Senhor quer ou[D/F#]vir sua [G]voz
+[C]É preciso di[G]zer: "[D]Sim"
+
+[Ponte]
+[Am]O que Maria fa[C]lou eu também quero e posso fa[G]lar
+[Am]Agora que eu posso, Se[C]nhor, tocar e can[B7]tar
+
+[Refrão (2x)]
+[Em]É preciso Te encon[D/F#]trar
+[G]É preciso Te se[C]guir  [B7]
+[Em]É preciso Te to[D/F#]car
+[G]O Senhor está a[C]qui  [B7]
+
+[Solo de Guitarra]
+Em   D/F#   G   C  B7   (2x)
+
+[Ponte]
+[Am]O que Maria fa[C]lou eu também quero e posso fa[G]lar
+[Am]Agora que eu posso, Se[C]nhor, tocar e can[B7]tar
+
+[Refrão Final (2x)]
+[Em]É preciso Te encon[D/F#]trar
+[G]É preciso Te se[C]guir  [B7]
+[Em]É preciso Te to[D/F#]car
+[G]O Senhor está a[C]qui  [B7]
+[Em]O Senhor está a[D/F#]qui, [G]O Senhor está a[C]qui  [B7]  [Em]
+
+Cifra alinhada da grade harmônica oficial (Enivaldo) — ajustável no Painel da Banda`,
     },
     {
       id: 'trk-6',
@@ -205,23 +333,52 @@ Grade Harmônica / Cifra: Enivaldo`,
       duration: '4:25',
       key: 'E',
       bpm: '',
-      listenUrl: '',
+      listenUrl: 'https://music.youtube.com/watch?v=YLc-feH-yT8',
       lyricsChords: `[Intro]
-| E | A9 | E | A9 |
+E   A9   E   A9
 
-[Cifra Oficial]
-||: E | A9 | E | A9 | E | A9 :||
-| G | D | Em | C | G | C |
-| D | D4  D :|| 3X
-| E | A9 | E | A9 | E | A9 |
-| E | A9 | E | A9 | E | A9 |
-| E | A9 | E | A | E | A |
+[Refrão]
+[E]Maria, meu re[A9]fúgio
+[E]Maria, forta[A9]leza
+[E]Maria, Mãe de [A9]Deus
+[E]Maria, Mãe da I[A9]greja
 
-[Vocal — só vocal até o final]
-| E | A9 | E | A9 | E | A9 |
-| E | A9 ||
+[Verso]
+[E]És Virgem Imacu[A9]lada
+[E]A Mãe do meu Se[A9]nhor
+[E]A Mãe interces[A9]sora
+[E]Junto ao meu Salva[A9]dor
 
-Grade Harmônica / Cifra: Enivaldo`,
+[Ponte]
+[G]Te faço lou[D]vores, ó Se[Em]nhora  [C]
+[G]Ave, cheia de [C]graça, Mãe da vi[D]tória
+Ventre livre das chagas (revisar verso)  [D4]  [D]
+
+[Refrão]
+[E]Maria, meu re[A9]fúgio
+[E]Maria, forta[A9]leza
+[E]Maria, Mãe de [A9]Deus
+[E]Maria, Mãe da I[A9]greja
+
+[Verso]
+[E]És Virgem Imacu[A9]lada
+[E]A Mãe do meu Se[A9]nhor
+[E]A Mãe interces[A9]sora
+[E]Junto ao meu Salva[A9]dor
+
+[Ponte]
+[G]Te faço lou[D]vores, ó Se[Em]nhora  [C]
+[G]Ave, cheia de [C]graça, Mãe da vi[D]tória
+Ventre livre das chagas (revisar verso)  [D4]  [D]
+
+[Refrão Final (2x — só vocal ao final)]
+[E]Maria, meu re[A9]fúgio, [E]Maria, forta[A9]leza
+[E]Maria, Mãe de [A9]Deus, [E]Maria, Mãe da I[A9]greja
+[E]És Virgem Imacu[A9]lada, [E]a Mãe do meu Se[A9]nhor
+[E]A Mãe interces[A9]sora, [E]junto ao meu Salva[A9]dor
+[E]Junto ao meu Salva[A9]dor, Salva[E]dor
+
+Cifra alinhada da grade harmônica oficial (Enivaldo) — ajustável no Painel da Banda`,
     },
     {
       id: 'trk-7',
@@ -231,21 +388,34 @@ Grade Harmônica / Cifra: Enivaldo`,
       duration: '3:58',
       key: 'A',
       bpm: '',
-      listenUrl: '',
+      listenUrl: 'https://music.youtube.com/watch?v=rljQJeYjJao',
       lyricsChords: `[Intro]
-| A  A/G | D/F#  Dm/F | A/E  E | A  E |
+A  A/G   D/F#  Dm/F   A/E  E   A  E
 
-[Voz]
-||: A | E | F#m  A/E | D  A/C# | G |
-| E :|| A  C#7/G# | F#m  A/E | D  G | E |
-| A | E | F#m  A/E | D | A | E |
-| A | E ||: F#m  F#m/F | F#m/E  F#m/Eb :||
-| G | E | A | E | F#m  A/E |
-| D | A | E | A | E | A |
-| E | F#m  A/E | D | A | E | A |
-| E | A | D  Dm/F | A7M ||
+[Verso 1]
+[A]Por quantas vezes eu so[E]fri, menti, fin[F#m]gi, cho[A/E]rei
+[D]E até ten[A/C#]tei sor[G]rir, um riso ilu[E]dido...
+[A]Por quantas vezes eu ten[E]tei algum [F#m]dia  [A/E]
+[D]Encontrar uma ra[A/C#]zão, uma res[G]posta pro meu va[E]zio
+[A]Foi qui[C#7/G#]mera, ilu[F#m]são  [A/E]
+[D]Comodismo, [G]soli[E]dão...
 
-Grade Harmônica / Cifra: Enivaldo`,
+[Refrão]
+[A]Eu quero vol[E]tar, eu pre[F#m]ciso es[A/E]tar ao [D]lado
+[A]Do Se[E]nhor  [A]  [E]
+
+[Verso 2]
+[F#m]E do Se[F#m/F]nhor ten[F#m/E]tei me afas[F#m/Eb]tar
+[F#m]Por não conhe[F#m/F]cer ou não que[F#m/E]rer por [F#m/Eb]Ele
+[G]Ser reconhe[E]cido...
+
+[Refrão Final (2x)]
+[A]Eu quero vol[E]tar, eu pre[F#m]ciso es[A/E]tar ao [D]lado
+[A]Do Se[E]nhor  [A]  [E]
+[A]Eu quero vol[E]tar, eu pre[F#m]ciso es[A/E]tar ao [D]lado
+[A]Do Se[E]nhor  [A]  [D]  [Dm/F]  [A7M]
+
+Cifra alinhada da grade harmônica oficial (Enivaldo) — ajustável no Painel da Banda`,
     },
     {
       id: 'trk-8',
@@ -255,23 +425,52 @@ Grade Harmônica / Cifra: Enivaldo`,
       duration: '4:15',
       key: 'D',
       bpm: '',
-      listenUrl: '',
+      listenUrl: 'https://music.youtube.com/watch?v=0NuGq-1KWa4',
       lyricsChords: `[Intro]
-||: D | % | G | A9 :||
+D   G   A9   (2x)
 
-[Voz]
-||: D | G | Em | A9 | D | G |
-| Em | A9 :|| Bm | G | Bm | G |
-| Em | A9 | D | G | Em | A9 |
-| D | G | Em | A9 :|| Bm | F#m |
-| G | A9 | Bm | F#m | G | A9 |
-| % ||: D | G | Em | A9 | D |
-| G | Em | A9 :|| Bm | G | Bm |
-| G | Bm | G | Em | A9 | D |
-| G | Em | A9 | D | G | Em |
-| A9 | D | G | Em | A9 | D ||
+[Verso 1]
+[D]De que valem as [G]lágrimas
+[Em]Se não houver o arrepen[A9]dimento?
+[D]De que vale o a[G]mor
+[Em]Se não praticamos esse senti[A9]mento?
 
-Grade Harmônica / Cifra: Enivaldo`,
+[Refrão]
+[Bm]E de que vale ser [G]tudo?
+[Bm]E de que vale ser [G]tudo
+[Em]Se sem Deus não somos [A9]nada?
+Nós não somos nada
+
+[Verso 2]
+[D]De que vale a ami[G]zade
+[Em]Se só traz a falsi[A9]dade?
+[D]De que vale a men[G]tira
+[Em]Quando existe a ver[A9]dade?
+
+[Refrão]
+[Bm]E de que vale ser [G]tudo?
+[Bm]E de que vale ser [G]tudo
+[Em]Se sem Deus não somos [A9]nada?
+Não somos nada
+
+[Ponte]
+[Bm]O que fazes é previ[F#m]sível, [G]nada se es[A9]conde
+[Bm]O que falas também é sen[F#m]sível e [G]falta a ver[A9]dade
+
+[Verso 3]
+[D]De que vale fu[G]gir
+[Em]De sua fé, religi[A9]ão?
+[D]Somos todos filhos de [G]Deus
+[Em]Brancos, negros, sem discrimina[A9]ção
+
+[Final]
+[Bm]O que adianta o[G]rar
+[Bm]Se fazemos tudo er[G]rado?
+[Bm]É fácil ter Cristo no [G]peito
+[Em]Difícil é andar ao Seu [A9]lado
+[D]Ao Seu [G]lado, [Em]ao Seu [A9]lado  [D]
+
+Cifra alinhada da grade harmônica oficial (Enivaldo) — ajustável no Painel da Banda`,
     },
     {
       id: 'trk-9',
@@ -281,30 +480,55 @@ Grade Harmônica / Cifra: Enivaldo`,
       duration: '4:02',
       key: 'C',
       bpm: '',
-      listenUrl: '',
+      listenUrl: 'https://music.youtube.com/watch?v=zDSyyXsBfx4',
       lyricsChords: `[Intro]
-| C | G | Bb | F | C | G |
-| Bb | F |
+C   G   Bb   F   (2x)
 
-[Voz]
-||: C | G | Am | C/G | G# |
-| Fm | G4 | G :||: % | C | G | Am |
-| Em | F | Dm | Bb | G :|| % |
+[Verso 1]
+[C]Há em mim uma [G]chama de amor
+[Am]Que é de Deus e que [C/G]brilha
+[G#]Nos caminhos por [Fm]onde eu andar
+A [G4]chama lá esta[G]rá
+[C]Há em mim um [G]vento impetuoso
+[Am]Que restaura e que [C/G]cura
+[G#]E quando me [Fm]ponho a orar
+[G4]Tu em mim es[G]tás
 
-[Banda]
-| C | G | Am | C/G | G# | Fm |
-| G4 | G | C | G | Am | C/G |
-| G# | Fm | G4 | G | % ||: C |
-| G | Am | Em | F | Dm | Bb |
-| G | % :|| Bb | F | C | % |
-| Bb | F | C | % | Bb | F |
-| C | % | Bb | F | G | % |
-| C | G | Am | Em | F | Dm |
-| Bb | G | % | C | G | Am |
-| Em | F | Dm | Bb | G | % |
-| C ||
+[Refrão (2x)]
+[C]De Ti [G]nada posso escon[Am]der  [Em]
+[F]Não tenho se[Dm]gredo a guar[Bb]dar  [G]
+[C]Minha [G]face Te [Am]busca  [Em]
+[F]Só Tu [Dm]podes me ampa[Bb]rar  [G]
 
-Grade Harmônica / Cifra: Enivaldo`,
+[Verso 2]
+[C]Há em mim uma [G]chama de amor
+[Am]Que é de Deus e que [C/G]brilha
+[G#]Nos caminhos por [Fm]onde eu andar
+A [G4]chama lá esta[G]rá
+[C]Há em mim um [G]vento impetuoso
+[Am]Que restaura e que [C/G]cura
+[G#]E quando me [Fm]ponho a orar
+[G4]Tu em mim esta[G]rás
+
+[Refrão (2x)]
+[C]De Ti [G]nada posso escon[Am]der  [Em]
+[F]Não tenho se[Dm]gredo a guar[Bb]dar  [G]
+[C]Minha [G]face Te [Am]busca  [Em]
+[F]Só Tu [Dm]podes me ampa[Bb]rar  [G]
+
+[Ponte]
+[Bb]Eu quero Te [F]ver, [C]face a face
+[Bb]Sem cessar em [F]mim acen[C]der
+[Bb]És Tu, Se[F]nhor, o [C]Deus que tudo pode
+[Bb]Em meio às [F]tribula[G]ções
+
+[Refrão Final (2x)]
+[C]De Ti [G]nada posso escon[Am]der  [Em]
+[F]Não tenho se[Dm]gredo a guar[Bb]dar  [G]
+[C]Minha [G]face Te [Am]busca  [Em]
+[F]Só Tu [Dm]podes me ampa[Bb]rar  [G]  [C]
+
+Cifra alinhada da grade harmônica oficial (Enivaldo) — ajustável no Painel da Banda`,
     },
     {
       id: 'trk-10',
@@ -314,25 +538,51 @@ Grade Harmônica / Cifra: Enivaldo`,
       duration: '3:50',
       key: 'E',
       bpm: '',
-      listenUrl: '',
+      listenUrl: 'https://music.youtube.com/watch?v=ZiYqzLnzt10',
       lyricsChords: `[Intro]
-| E | % | % | % |
+E   (4x)
 
-[Voz]
-||: C#m | A9 | B | E  E7M | C#m | A9 |
-| B | E :|| F#m | B | C#m | % |
-| F#m | B | C#m | % | G# | % |
-| % | % | C#m | A9 | B | E  E7M |
-| C#m | A9 | B | E | F#m | B |
-| C#m | % | F#m | B | C#m | % |
-| G# | % | % | % | F# | % |
-| G# | % | F# | % | G# | % |
-| C# | % | F# | F#  B | C# | % |
-| F# | F#  B | E | % ||: F#m | B |
-| C#m | % | F#m | B | C#m | % :||
-| G# | % | % | % | C#m ||
+[Verso 1]
+[C#m]Certas manhãs sem o [A9]sol
+[B]Quando o frio [E]cai  [E7M]
+[C#m]Qual direção em que [A9]vou?
+[B]Sem a Tua mão não [E]dá
+[C#m]Nessas manhãs sem o [A9]sol
+[B]E tudo se [E]vai  [E7M]
+[C#m]Qual o lugar em que es[A9]tou?
+[B]Sem a Tua voz não [E]dá
 
-Grade Harmônica / Cifra: Enivaldo`,
+[Refrão]
+[F#m]Você faz tudo [B]aconte[C#m]cer
+[F#m]Coração para [B]de do[C#m]er
+[G#]Quando estás aqui
+
+[Verso 2]
+[C#m]Outras manhãs sem o [A9]sol
+[B]Quando Você [E]sai  [E7M]
+[C#m]Eu me pergunto quem [A9]sou
+[B]E a solidão em [E]mim
+
+[Refrão]
+[F#m]Você faz tudo [B]aconte[C#m]cer
+[F#m]Coração para [B]de do[C#m]er
+[G#]Quando estás aqui
+
+[Ponte]
+[F#]Traz o sol com Você pra [G#]mim
+[F#]Todas as manhãs as[G#]sim
+[C#]Então tudo se a[F#]calma  [B]
+[C#]Calor invade minh'[F#]alma  [B]  [E]
+
+[Refrão Final]
+[F#m]Você faz tudo [B]aconte[C#m]cer
+[F#m]Coração para [B]de do[C#m]er
+[F#m]Você faz tudo [B]aconte[C#m]cer
+[F#m]Coração para [B]de do[C#m]er
+[G#]Quando estás aqui
+Sempre [C#m]Tu
+
+Cifra alinhada da grade harmônica oficial (Enivaldo) — ajustável no Painel da Banda`,
     },
 
     // CD 2: Minha Obra (Todas as 10 faixas com letras e cifras em formato de cancioneiro)
@@ -798,35 +1048,36 @@ Cifra base adaptada da gravação — ajustável no Painel da Banda`,
   events: [
     {
       id: 'evt-1',
-      title: 'Santa Missa com Ministério Razão de Viver',
-      category: 'Missa',
-      date: '2026-11-29',
-      time: '19:00',
-      location: 'Paróquia Nossa Senhora de Guadalupe',
-      address: 'Paróquia Nossa Senhora de Guadalupe, Complexo do Alemão, Rio de Janeiro - RJ',
-      description: 'Celebração dominical com animação litúrgica e canções dos nossos dois CDs. Traga sua família!',
+      title: 'FEMUP 2026 — Paróquia Nossa Senhora de Guadalupe',
+      category: 'Show',
+      date: '2026-11-28',
+      time: '13:45',
+      location: 'Paróquia Nossa Senhora de Guadalupe — Inhaúma',
+      address: 'Travessa Chiapas, s/n, Inhaúma, Rio de Janeiro - RJ',
+      description: 'Festival de Música Paroquial (FEMUP 2026) na Paróquia Nossa Senhora de Guadalupe (Travessa Chiapas, s/n — Inhaúma). Informações: @pnsg.guadalupe • (21) 97187-3170.',
+      poster: './assets/img/evento-femup-2026.jpg',
       featured: true,
     },
     {
       id: 'evt-2',
-      title: 'Noite de Louvor & Adoração — Festa de N. Sra. de Guadalupe',
-      category: 'Adoração',
+      title: 'Rosas de Guadalupe — Festa da Padroeira',
+      category: 'Show',
       date: '2026-12-12',
       time: '19:30',
-      location: 'Matriz de Nossa Senhora de Guadalupe',
-      address: 'Paróquia Nossa Senhora de Guadalupe, Complexo do Alemão, Rio de Janeiro - RJ',
-      description: 'Momento especial em honra à nossa Padroeira com adoração ao Santíssimo e louvor ao vivo.',
+      location: 'Paróquia Nossa Senhora de Guadalupe — Inhaúma',
+      address: 'Travessa Chiapas, s/n, Inhaúma, Rio de Janeiro - RJ',
+      description: 'Evento especial Rosas de Guadalupe na Festa da Padroeira Nossa Senhora de Guadalupe. Venha celebrar e louvar conosco!',
       featured: true,
     },
     {
       id: 'evt-3',
-      title: 'Tarde de Evangelização & Música Católica',
-      category: 'Show',
-      date: '2026-12-20',
-      time: '16:00',
-      location: 'Encontro Comunitário — Zona Norte RJ',
-      address: 'Complexo do Alemão, Rio de Janeiro - RJ',
-      description: 'Apresentação especial com repertório escolhido na enquete do app. Entrada gratuita.',
+      title: 'Santa Missa Dominical',
+      category: 'Missa',
+      date: 'Domingos',
+      time: '07:00',
+      location: 'Paróquia Nossa Senhora de Guadalupe — Inhaúma',
+      address: 'Travessa Chiapas, s/n, Inhaúma, Rio de Janeiro - RJ',
+      description: 'Santa Missa todos os domingos às 07:00h na Paróquia Nossa Senhora de Guadalupe com o Ministério Razão de Viver.',
       featured: false,
     },
   ],
