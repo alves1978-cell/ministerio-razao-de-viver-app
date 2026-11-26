@@ -810,6 +810,42 @@ img {
   box-shadow: 0 0 0 1px rgba(230, 169, 59, 0.45), var(--shadow-card);
 }
 
+.cancioneiro-card {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(230, 169, 59, 0.13), rgba(26, 23, 20, 0.96));
+  border-color: var(--border-strong);
+}
+
+.cancioneiro-info {
+  flex: 1 1 320px;
+}
+
+.cancioneiro-info h3 {
+  margin: 8px 0 6px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.cancioneiro-info p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.cancioneiro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
 .album-top {
   display: flex;
   gap: 16px;
