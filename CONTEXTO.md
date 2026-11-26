@@ -10,7 +10,7 @@
 - **Origem:** Paróquia Nossa Senhora de Guadalupe — Complexo do Alemão, Rio de Janeiro - RJ
 - **Instagram:** `@razaodeviver.oficial` (https://www.instagram.com/razaodeviver.oficial/)
 - **Repositório GitHub:** https://github.com/alves1978-cell/ministerio-razao-de-viver-app
-- **Link Online (GitHub Pages — PWA):** https://alves1978-cell.github.io/ministerio-razao-de-viver-app/
+- **Domínio Oficial (GitHub Pages — PWA):** https://razaodeviver.com.br (arquivo `CNAME` configurado; fallback: https://alves1978-cell.github.io/ministerio-razao-de-viver-app/)
 - **Outro projeto na mesma conta GitHub (`alves1978-cell`):** `antropometria-hc2` (https://alves1978-cell.github.io/antropometria-hc2/)
 
 ---
