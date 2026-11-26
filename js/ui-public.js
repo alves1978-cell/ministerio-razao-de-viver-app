@@ -129,7 +129,7 @@ export function renderHome(container, ctx) {
         <h2 class="section-title">Nossos 2 CDs Gravados</h2>
       </div>
       <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
-        <a class="btn-link" href="./assets/docs/cancioneiro-ministerio-razao-de-viver.pdf" target="_blank" rel="noopener">📖 Cancioneiro PDF</a>
+        <a class="btn-link" href="./assets/docs/cancioneiro-ministerio-razao-de-viver.pdf?v=2" target="_blank" rel="noopener">📖 Cancioneiro PDF</a>
         <button class="btn-link" data-nav="music">Ver faixas e cifras →</button>
       </div>
     </div>
@@ -293,10 +293,10 @@ export function renderMusic(container, ctx) {
         <p>Baixe o caderno oficial do Ministério Razão de Viver em PDF com todas as 20 faixas dos 2 CDs (versão Só Letra e versão Letra + Cifra), pronto para imprimir, ensaiar ou usar offline.</p>
       </div>
       <div class="cancioneiro-actions">
-        <a class="btn btn-gold btn-sm" href="./assets/docs/cancioneiro-ministerio-razao-de-viver.pdf" download="Cancioneiro-Ministerio-Razao-de-Viver.pdf">
-          ⬇ Baixar PDF (468 KB)
+        <a class="btn btn-gold btn-sm" href="./assets/docs/cancioneiro-ministerio-razao-de-viver.pdf?v=2" download="Cancioneiro-Ministerio-Razao-de-Viver.pdf">
+          ⬇ Baixar PDF (467 KB)
         </a>
-        <a class="btn btn-outline btn-sm" href="./assets/docs/cancioneiro-ministerio-razao-de-viver.pdf" target="_blank" rel="noopener">
+        <a class="btn btn-outline btn-sm" href="./assets/docs/cancioneiro-ministerio-razao-de-viver.pdf?v=2" target="_blank" rel="noopener">
           👁 Abrir Cancioneiro
         </a>
       </div>
