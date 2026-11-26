@@ -1,4 +1,4 @@
-const CACHE_NAME = 'razao-de-viver-v21';
+const CACHE_NAME = 'razao-de-viver-v22';
 const CORE_ASSETS = [
   './',
   './index.html',

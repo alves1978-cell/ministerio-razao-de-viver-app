@@ -160,10 +160,12 @@ export function renderHome(container, ctx) {
 
     <div class="cancioneiro-strip">
       <div class="cancioneiro-strip-text">
-        <span class="cancioneiro-strip-icon" aria-hidden="true">📖</span>
+        <div class="cancioneiro-strip-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3H10a2 2 0 0 1 2 2v14a1.5 1.5 0 0 0-1.5-1.5H4.5A2.5 2.5 0 0 1 2 15V5.5z"/><path d="M22 5.5A2.5 2.5 0 0 0 19.5 3H14a2 2 0 0 0-2 2v14a1.5 1.5 0 0 1 1.5-1.5h6A2.5 2.5 0 0 0 22 15V5.5z"/></svg>
+        </div>
         <div>
           <strong>Cancioneiro Oficial em PDF</strong>
-          <span>44 páginas • Todas as 20 letras e cifras</span>
+          <span class="cancioneiro-strip-sub">44 páginas • Todas as 20 letras e cifras</span>
         </div>
       </div>
       <div class="cancioneiro-strip-actions">
